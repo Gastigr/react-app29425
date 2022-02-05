@@ -1,0 +1,8 @@
+.itemListContainer{
+    color: yellow;
+    background-color: black;
+    display: flex;
+    border-radius: 8px;
+    flex-direction: column;
+    margin: 4%;
+}

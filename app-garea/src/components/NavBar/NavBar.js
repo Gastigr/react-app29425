@@ -1,14 +1,29 @@
 import './NavBar.css'
 import './img.css'
-import { BsCart4 } from "react-icons/bs";
+import Button from '../Button/Button';
+import CartWidget from '../CartWidget/CartWidget';
+
+
+
 
 const Navbar = () =>{
+    const handLeHombre = ()=>{
+        console.log('handLeHombre')
+
+    }
+
+    const handLeMujer =() =>{
+        console.log('handLeMujer') 
+    }
+
+
     return(
         <nav className='NavBar'>
           <img src={'./img/logo_fest.png'} className='logo' alt='logo'></img>
-            <button className='Option'>Hombre</button>
-            <button className='Option'>Mujer</button>
-            <button className='Option'><BsCart4 /></button>
+            <Button label='Hombre' handLeClick={handLeHombre}  />
+            <Button label='Mujer' handLeClick={handLeMujer} />
+            
+            <CartWidget />
         </nav>
     )
 }
