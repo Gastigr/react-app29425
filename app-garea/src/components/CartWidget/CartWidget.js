@@ -1,14 +1,15 @@
 import { BsCart4 } from "react-icons/bs";
-import './CartWidget.css'
+	import './CartWidget.css'
+	
+	const CartWidget =({contador='0'})=>{
+	    return(
+             <>
+	              <BsCart4 className="btnCart" />
+                  <span>{contador}</span>
+             </>
+	    )
+	}
 
-
-const CartWidget =({handLeClick, contador='0'})=>{
-    return(
-        <button className="btnCart" onClick={handLeClick}><BsCart4/><span>{contador}</span></button>
-    )
-}
-
-
-export default CartWidget
+	export default CartWidget
 
 
