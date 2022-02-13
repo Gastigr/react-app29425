@@ -23,9 +23,9 @@ const ItemCount = ({stock = 1, initial = 1, onAdd}) => {
         <>
             <h3>Producto</h3>
             <h3>{count}</h3>
-            <button aling="left"  onClick={() => decrement()}><FaMinusSquare/></button>
+            <button aling="left"  onClick ={decrement}><FaMinusSquare/></button>
             <button aling="center" onClick={() => onAdd(count)}>Agregar al carrito</button>
-            <button aling="right" onClick={() => increment()}><FaPlusSquare /></button>
+            <button aling="right" onClick={increment}><FaPlusSquare /></button>
             
         
         </>
