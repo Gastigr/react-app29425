@@ -7,18 +7,15 @@ import {FaMinusSquare} from "react-icons/fa";
 const ItemCount = ({stock = 1, initial = 1, onAdd}) => {
     const [count, setCount] = useState(initial) 
     const increment = () => {
-        if(count < stock){
-            
-            setCount(count + 1)
-            
-        }
-    }
-    const decrement = () => {
-        if(count > 0) {
-            setCount(count - 1)
 
-        }
-    }
+        count < stock && setCount(count + 1);
+       
+    };
+
+    const decrement = () => {
+        count > initial && setCount(count - 1 ) ;
+
+    };
     return(
         <>
             <h3>Producto</h3>
