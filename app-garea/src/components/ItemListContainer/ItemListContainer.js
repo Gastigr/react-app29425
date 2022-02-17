@@ -1,6 +1,6 @@
 import './itemListContainer.css'
 import ItemCount from "../ItemCount/ItemCount"
-import { traerProductos } from '../mock/products'
+import { getProducts} from '../mock/products'
 import  { useState,useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
 
@@ -14,7 +14,7 @@ const ItemListContainer = ({greeting}) =>{
 
 
     useEffect(()=>{
-        traerProductos
+        getProducts()
         .then((respuesta)=>{
             setProducts(respuesta)
         })
@@ -29,13 +29,7 @@ const ItemListContainer = ({greeting}) =>{
 
     return(
         <>
-        
-        
         <h1>{greeting}</h1>
-
-
-
-
         <div className="ItemListContainer">
             <ItemCount stock={5} initial={0} onAdd={handleOnAdd}/>
         </div>

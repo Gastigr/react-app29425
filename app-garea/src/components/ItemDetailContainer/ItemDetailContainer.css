@@ -1,0 +1,9 @@
+.Detalle{
+    display: flex;
+    
+    margin: 200px;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+
+}

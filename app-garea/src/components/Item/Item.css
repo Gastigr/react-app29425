@@ -14,7 +14,13 @@
     padding: 13%;
     border: 2px solid black;
     border-radius: 5%;
+    background-color:#fdc571;
 }
 .ImgCard{
     width: 200px;
+}
+p{
+    color:black;
+    font-size:x-large;
+    font-weight: bold;
 }
