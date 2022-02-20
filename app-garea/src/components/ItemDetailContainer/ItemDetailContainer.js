@@ -2,21 +2,19 @@ import { useState, useEffect } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.css'
 import { getProducts } from '../mock/products'
+import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({})
+    const {productId} =useParams ()
+    
 
-    useEffect(() => {
-        getProducts().then(item => {
-            setProduct(item.find(producto => producto.id === 2))
-        }).catch(err  => {
-            console.log(err)
-        })
-
-        
-
-    }, [])
-
+   useEffect(()=>{
+       getProducts()
+       .then((producto)=>{
+           setProduct(producto.find(product => product.id === parseInt(productId)))
+       })
+   },[productId])
 
     return (
         <div className="Detalle" >

@@ -1,4 +1,4 @@
-
+import './ItemDetail.css'
 
 
 const ItemDetail = ({ product }) => {
@@ -10,8 +10,9 @@ return(
                     <p>Color: {product.color}</p>
                     <p>Categoria: {product.categoria}</p>
                     <p>Nombre: {product.nombre}</p>
-                    <p>Material: {product.materialr}</p>
+                    <p>Material: {product.material}</p>
                     <p>Precio: {product.precio}€</p>
+                    <button>Agregar al carrito</button>
                     
                 </div>
             </div>

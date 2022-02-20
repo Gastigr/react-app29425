@@ -1,0 +1,26 @@
+.Producto {
+    max-width: 30%;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: stretch;
+}
+
+.Card{
+    color :black;
+    position:unset;
+    display: grid;
+    margin: 0%;
+    padding: 13%;
+    border: 2px solid black;
+    border-radius: 5%;
+    background-color:#fdc571;
+}
+.ImgCard{
+    width: 200px;
+}
+p{
+    color:black;
+    font-size:x-large;
+    font-weight: bold;
+}

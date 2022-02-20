@@ -5,7 +5,7 @@
         color: "Azul", 
         material: "ACERO INOX",
         precio: 500, 
-        categoria:"HOMBRE", 
+        categoria:"hombre", 
         stock: 4,
         img:"https://res.cloudinary.com/gasgarea/image/upload/v1644773780/img/f20524_1_ndgvof.png",
     },
@@ -16,7 +16,7 @@
         color:"Rosa", 
         material:"ACERO",
         precio: 500,
-        categoria:"MUJER",
+        categoria:"mujer",
         stock : 4,
         img:"https://res.cloudinary.com/gasgarea/image/upload/v1644773781/img/f16721_2_jash6k.png"
     },
@@ -26,7 +26,7 @@
         color: "Negro",
         material: "ACERO INOX",
         precio: 500,
-        categoria: "HOMBRE",
+        categoria: "hombre",
         stock: 5,
         img:"https://res.cloudinary.com/gasgarea/image/upload/v1645038753/img/f20480_4_lg5ouv.png",
         },
@@ -37,7 +37,7 @@
         color:"Plata",
         material:"ACERO", 
         precio: 500,
-        categoria:"MUJER",
+        categoria:"mujer",
         stock: 5,
         img:"https://res.cloudinary.com/gasgarea/image/upload/v1645038759/img/f20399_1_bbjage.png",
     },
@@ -50,15 +50,8 @@
     return new Promise((resolve) =>{
         setTimeout(() => {
             resolve(products)
-        }, 3000)
+        }, 1000)
     })
  }
- export const getProduct = () =>{
-    return new Promise((resolve) =>{
-        setTimeout(() => {
-            resolve(products[0])
-        }, 3000)
-    })
- }
-
+ 
 
