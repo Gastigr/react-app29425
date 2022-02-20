@@ -4,7 +4,7 @@ import { getProducts} from '../mock/products'
 import  { useState,useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
 
-const ItemListContainer = ({greeting}) =>{
+const ItemListContainer = ({greeting, routing}) =>{
 
     const handleOnAdd = (quantity) => {
         console.log(`Se agregaron ${quantity} productos`)
@@ -33,7 +33,7 @@ const ItemListContainer = ({greeting}) =>{
         <div className="ItemListContainer">
             <ItemCount stock={5} initial={0} onAdd={handleOnAdd}/>
         </div>
-        {loading ? <h2>Estamos Cargando los Productos....</h2> : <ItemList products={products} />}
+        {loading ? <h2>Estamos Cargando los Productos....</h2> : <ItemList products={products} routing={routing} />}
         </>
         
     );

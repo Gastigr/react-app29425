@@ -6,7 +6,7 @@ import CartWidget from '../CartWidget/CartWidget';
 
 
 
-const Navbar = () =>{
+const Navbar = ({routing}) =>{
     const handLeHombre = ()=>{
         console.log('handLeHombre')
 
@@ -19,7 +19,10 @@ const Navbar = () =>{
 
     return(
         <nav className='NavBar'>
-          <img src={'./img/logo_fest.png'} className='logo' alt='logo'></img>
+          <div onClick={() => routing({path:'list', id:1})}>
+            <img src={'./img/logo_fest.png'} className='logo' alt='logo'></img>   
+          </div>
+          
             <Button label='Hombre' handLeClick={handLeHombre}  />
             <Button label='Mujer' handLeClick={handLeMujer} />
             

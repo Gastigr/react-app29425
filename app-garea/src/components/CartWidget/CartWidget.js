@@ -4,8 +4,8 @@ import { BsCart4 } from "react-icons/bs";
 	const CartWidget =({contador='0'})=>{
 	    return(
              <div>
-	              <BsCart4 className="btnCart" />
-                  <span>{contador}</span>
+	              <BsCart4 className="btnCart" /><span>{contador}</span>
+                  
              </div>
 	    )
 	}

@@ -50,14 +50,16 @@
     return new Promise((resolve) =>{
         setTimeout(() => {
             resolve(products)
-        }, 3000)
+        }, 2000)
     })
  }
- export const getProduct = () =>{
+ export const getProduct = (id) =>{
+
     return new Promise((resolve) =>{
+        
         setTimeout(() => {
-            resolve(products[0])
-        }, 3000)
+            resolve(id)
+        }, 2000)
     })
  }
 

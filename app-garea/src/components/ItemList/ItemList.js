@@ -2,13 +2,13 @@ import Item from "../Item/Item"
 import "./ItemList.css"
 
 
-const ItemList = ({products}) =>{
+const ItemList = ({products, routing}) =>{
     return(
         <>  
-            <div className="CardItem">
-                {products.map((product)=> ( <Item product={product} key={product.id}/> 
+            <article className="CardItem">
+                {products.map((product)=> ( <Item product={product} key={product.id} routing={routing}/> 
                 ))}     
-            </div>
+            </article>
             
             
         </>
