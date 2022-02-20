@@ -3,12 +3,12 @@ import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.css'
 import { getProducts } from '../mock/products'
 
-const ItemDetailContainer = ({id}) => {
+const ItemDetailContainer = () => {
     const [product, setProduct] = useState({})
 
     useEffect(() => {
-        getProducts(id).then(item => {
-            setProduct(item.find(producto => producto.id === id))
+        getProducts().then(item => {
+            setProduct(item.find(producto => producto.id === 1))
         }).catch(err  => {
             console.log(err)
         })
