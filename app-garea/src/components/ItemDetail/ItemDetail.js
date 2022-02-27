@@ -1,7 +1,25 @@
-import './ItemDetail.css'
-
+import './ItemDetail.css';
+import React, {useState, useContext} from 'react';
+import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({ product }) => {
+    const [qty, setQty] = useState(0);
+    const { addToCart } = useContext(CartContext);
+
+    const onAdd = (cantidad) => {
+        setQty(cantidad);
+        addToCart(product, cantidad);
+        
+    };
+
+
+
+
+
+
+
 return(
     <div className="Producto">
                 <div className="Card">
@@ -12,9 +30,21 @@ return(
                     <p>Nombre: {product.nombre}</p>
                     <p>Material: {product.material}</p>
                     <p>Precio: {product.precio}€</p>
-                    <button>Agregar al carrito</button>
                     
+
+
+
+                    
+                    {qty === 0 ? (
+                    <ItemCount stock={product.stock} onAdd={onAdd} />
+                ) : (
+                    <Link  to="/cart">
+                        Ir al carrito
+                    </Link>
+                )}
                 </div>
+
+                
             </div>
             
     )
