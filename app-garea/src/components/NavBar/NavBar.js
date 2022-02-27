@@ -14,7 +14,7 @@ const Navbar = () =>{
     return(
         <nav className='NavBar'>
             <div>
-                <NavLink to={'/home'}><img  src={'./img/logo_fest.png'} className='logo' alt='logo'></img></NavLink>
+                <NavLink to={'/'}><img  src={'./img/logo_fest.png'} className='logo' alt='logo'></img></NavLink>
             </div>
             <div>
                 <NavLink to={'/category/hombre'}  className={({isActive}) => isActive ? 'ActiveBtnCategoria':'BtnCategoria'}>Hombre</NavLink>
