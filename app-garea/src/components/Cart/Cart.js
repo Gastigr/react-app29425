@@ -3,7 +3,7 @@ import { CartContext } from '../../context/CartContext';
 import { NavLink } from 'react-router-dom';
 
 export default function Cart() {
-    const { cart, removeItem,  } = useContext(CartContext);
+    const { cart, removeItem } = useContext(CartContext);
   
     return (
       <div>
@@ -22,7 +22,7 @@ export default function Cart() {
                 <p>{prod.nombre}</p>
                 <p>{prod.precio}</p>
                 <p>{prod.cantidad}</p>
-                <button onClick={() => removeItem(prod.item.id)}>Remove</button>
+                <button onClick={() => removeItem(prod.id)}>Remove</button>
               </li>
             ))
           )}

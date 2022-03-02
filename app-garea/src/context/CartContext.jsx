@@ -21,10 +21,12 @@ export const CartContextProvider = ({ children }) => {
         return cart.some((producto) => producto.id === id);
     };
 
-    const removeItem = (item) => {
-        let newCart = cart.filter((p) => p.item.id !== item.item.id);
+    const removeItem = (id) => {
+        let newCart = cart.filter((prod) => prod.id !== id);
         setCart(newCart);
-      };
+        
+        console.log(removeItem)
+    };
     
       const clear = () => {
         setCart([]);
