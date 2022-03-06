@@ -5,6 +5,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import NavBar from './components/NavBar/NavBar';
 import Cart from './components/Cart/Cart';
 import { CartContextProvider } from './context/CartContext';
+import {NotificationServicesProvider} from './services/notificarion/NotificationServices';
 
 
 
@@ -13,18 +14,19 @@ function App() {
   
   return (
     <div className="App">
-     <CartContextProvider> 
-        <BrowserRouter>
-          <NavBar/>
-          <Routes>
-            <Route path='/'element={<ItemListContainer greeting='Bienvenidos a nuestra tienda' />}/>
-            <Route path='/category/:categoryId' element={<ItemListContainer />}/>
-            <Route path='/detail/:productId'element={<ItemDetailContainer />}/>
-            <Route path="/cart" element={<Cart />} />
-          </Routes>
-          
-        </BrowserRouter>
-      </CartContextProvider>
+      <NotificationServicesProvider>
+        <CartContextProvider> 
+            <BrowserRouter>
+              <NavBar/>
+              <Routes>
+                <Route path='/'element={<ItemListContainer greeting='Bienvenidos a nuestra tienda' />}/>
+                <Route path='/category/:categoryId' element={<ItemListContainer />}/>
+                <Route path='/detail/:productId'element={<ItemDetailContainer />}/>
+                <Route path="/cart" element={<Cart />} />
+              </Routes>
+            </BrowserRouter>
+        </CartContextProvider>
+      </NotificationServicesProvider>
         
     </div>
   );

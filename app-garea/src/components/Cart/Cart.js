@@ -16,18 +16,19 @@ export default function Cart() {
                 
               </NavLink>
             </>
-          ) : (
+          ) : ( 
             cart.map((prod) => (
               <li key={prod.id}>
                 <p>{prod.nombre}</p>
                 <p>{prod.precio}</p>
                 <p>{prod.cantidad}</p>
+                
                 <button onClick={() => removeItem(prod.id)}>Remove</button>
               </li>
             ))
           )}
         </ul>
-   
+              
         
       </div>    
     );

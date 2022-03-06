@@ -1,9 +1,10 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState,} from 'react';
 
 export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
+    
 
     useEffect(() => {
         
@@ -47,6 +48,13 @@ export const CartContextProvider = ({ children }) => {
         setCart(newProducts);
     };
 
+    // const getQuantity =() =>{
+    //     let totalQ =  0
+    //     cart.forEach(prod=> {
+    //         totalQ = totalQ + prod.cantidad
+    //     })
+    //     return (totalQ) 
+    // }
    
    
 

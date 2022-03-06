@@ -1,9 +1,12 @@
 import './itemListContainer.css'
 // import ItemCount from "../ItemCount/ItemCount"
-import { getProducts} from '../mock/products'
+// import { getProducts} from '../mock/products'
 import  { useState,useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import { getDocs, collection,query, where} from 'firebase/firestore'
+import { firestoreDb } from '../../services/firebase/firebase'
+
 
 const ItemListContainer = ({greeting}) =>{
 
@@ -17,21 +20,30 @@ const ItemListContainer = ({greeting}) =>{
     
 
     useEffect(()=>{
-        getProducts()
-        .then((respuesta)=>{
-            if(categoryId === undefined){setProducts(respuesta)
-                
-            }else{setProducts(respuesta.filter(products => products.categoria === categoryId)
-            )}
-        
-        })
-        
-        .catch((error)=>{
-            
-        })
+       setLoading(true)
+
+
+        const collectionRef = categoryId ?
+        query(collection(firestoreDb,'products'), where('categoria', '==',categoryId )) :
+        collection(firestoreDb, 'products')
+
+       getDocs(collectionRef).then(response =>{
+           
+           const products = response.docs.map(doc =>{
+               
+               return{id: doc.id, ...doc.data()}
+               
+           })
+           setProducts(products)
+       })    
+
         .finally(()=>{
-            setLoading(false)
+             setLoading(false)
         })
+        return(()=>{
+            setProducts()
+        })
+ 
     },[categoryId])
     
 
@@ -45,7 +57,6 @@ const ItemListContainer = ({greeting}) =>{
         </>
         
     );
-};
-
+}
 
 export default ItemListContainer
