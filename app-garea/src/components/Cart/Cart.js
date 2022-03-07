@@ -13,7 +13,7 @@ export default function Cart() {
             <>
               <p>No items in cart</p>
               <NavLink to="/">
-                
+                <p>Volver a la tienda</p>
               </NavLink>
             </>
           ) : ( 
@@ -22,6 +22,8 @@ export default function Cart() {
                 <p>{prod.nombre}</p>
                 <p>{prod.precio}</p>
                 <p>{prod.cantidad}</p>
+                <p>{prod.color}</p>
+                <p>{prod.material}</p>  
                 
                 <button onClick={() => removeItem(prod.id)}>Remove</button>
               </li>
@@ -34,31 +36,3 @@ export default function Cart() {
     );
   }
 
-
-
-
-
-
-
-// const Cart = () => {
-
-//     const { cart } = useContext(CartContext);
-    
-
-//     return (
-//         <>
-            
-            
-//             {cart.map((prod) => (
-//                 <li key={prod.id}>{prod.cantidad}</li>
-                
-                
-//             ))}
-
-
-
-//         </>
-//     );
-// };
-
-// export default Cart;
