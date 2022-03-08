@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
 
 
     getDoc(docRef).then(response => {
-        const product = {id: response.id, ...response.data}
+        const product = {id: response.id, ...response.data()}
         setProduct(product)
     }).finally(()=>{
         setLoading(false)

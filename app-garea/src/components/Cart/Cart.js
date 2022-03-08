@@ -19,11 +19,12 @@ export default function Cart() {
           ) : ( 
             cart.map((prod) => (
               <li key={prod.id}>
-                <p>{prod.nombre}</p>
-                <p>{prod.precio}</p>
-                <p>{prod.cantidad}</p>
-                <p>{prod.color}</p>
-                <p>{prod.material}</p>  
+                <img className="ImgCard" src={prod.img} alt={prod.nombre}/>
+                <p>Nombre: {prod.nombre}</p>
+                <p>Precio: {prod.precio}€</p>
+                <p>Cantidad: {prod.cantidad}</p>
+                <p>Color: {prod.color}</p>
+                <p>Material: {prod.material}</p>  
                 
                 <button onClick={() => removeItem(prod.id)}>Remove</button>
               </li>

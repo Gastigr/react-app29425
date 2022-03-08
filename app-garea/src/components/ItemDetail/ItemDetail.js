@@ -4,13 +4,13 @@ import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 
-const ItemDetail = ({ prod }) => {
+const ItemDetail = ({ ...product }) => {
     const [qty, setQty] = useState(0);
     const { addToCart } = useContext(CartContext);
 
     const onAdd = (cantidad) => {
         setQty(cantidad);
-        addToCart(prod, cantidad);
+        addToCart(product, cantidad);
         
     };
 
@@ -24,19 +24,21 @@ return(
     <div className="Producto">
                 <div className="Card">
                     
-                    {/* <h2>Marca: {prod.marca}</h2> */}
-                    <p>Color: {prod.color}</p>
-                    <p>Categoria: {prod.categoria}</p>
-                    <p>Nombre: {prod.nombre}</p>
-                    <p>Material: {prod.material}</p>
-                    <p>Precio: {prod.precio}€</p>
+                    <h2>{product.marca}</h2>
+                    <img className="ImgCard" src={product.img} alt={product.nombre}/>
+                    <p>{product.color}</p>
+                    
+                    <p>{product.categoria}</p>
+                    <p>{product.nombre}</p>
+                    <p>{product.material}</p>
+                    <p>{product.precio}€</p>
                     
 
 
 
                     
                     {qty === 0 ? (
-                    <ItemCount stock={prod.stock} onAdd={onAdd} />
+                    <ItemCount stock={product.stock} onAdd={onAdd} />
                 ) : (
                     <Link  to="/cart">
                         Ir al carrito
