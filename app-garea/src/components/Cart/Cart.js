@@ -1,10 +1,85 @@
-import React, { useContext } from 'react';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { useContext , useState, useRef} from 'react';
 import { CartContext } from '../../context/CartContext';
 import { NavLink } from 'react-router-dom';
+import ContactForm from '../ContacForm/ContactForm';
+import { Timestamp,doc, getDoc } from 'firebase/firestore'
+import Togglable from '../Togglable/Togglable'
+import { firestoreDb } from '../../services/firebase/firebase'
 
 export default function Cart() {
-    const { cart, removeItem } = useContext(CartContext);
-  
+
+
+
+
+const { cart, removeItem, getTotal} = useContext(CartContext);
+const [processingOrder, setProcessingOrder] = useState(false)
+
+
+const [contact, setContact] = useState({
+  name: '',
+  phone: '',
+  address: '',
+  comment: ''
+})
+
+ const confirmOrder = () => {
+  if(contact.phone !== '' && contact.address !== '' && contact.comment !== '' && contact.name !== '') {
+      setProcessingOrder(true)
+      
+      const objOrder = {
+          buyer: contact,
+          items: cart,
+          total: getTotal(),
+          date: Timestamp.fromDate(new Date())
+      }}
+
+
+      
+
+
+// const contactFormRef = useRef()
+
     return (
       <div>
         <h1>Cart</h1>
@@ -23,17 +98,30 @@ export default function Cart() {
                 <p>Nombre: {prod.nombre}</p>
                 <p>Precio: {prod.precio}€</p>
                 <p>Cantidad: {prod.cantidad}</p>
-                <p>Color: {prod.color}</p>
-                <p>Material: {prod.material}</p>  
+               
                 
                 <button onClick={() => removeItem(prod.id)}>Remove</button>
+
+
+                
+
+
               </li>
             ))
           )}
         </ul>
-              
+        <h3>Total: ${getTotal()}</h3>
+        <button onClick={() => confirmOrder()} className="Button">Confirmar Compra</button>
+        
+                        
+                
+
+
+
+
+       
         
       </div>    
-    );
-  }
-
+      
+    )
+            }}

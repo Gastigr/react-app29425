@@ -5,7 +5,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import NavBar from './components/NavBar/NavBar';
 import Cart from './components/Cart/Cart';
 import { CartContextProvider } from './context/CartContext';
-import {NotificationServicesProvider} from './services/notificarion/NotificationServices';
+import {NotificationServicesProvider} from './services/notification/NotificationServices';
 
 
 

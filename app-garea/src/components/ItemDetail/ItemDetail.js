@@ -2,7 +2,7 @@ import './ItemDetail.css';
 import React, {useState, useContext} from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../context/CartContext';
+import { CartContext} from '../../context/CartContext';
 
 const ItemDetail = ({ ...product }) => {
     const [qty, setQty] = useState(0);
@@ -13,11 +13,6 @@ const ItemDetail = ({ ...product }) => {
         addToCart(product, cantidad);
         
     };
-
-
-
-
-
 
 
 return(
