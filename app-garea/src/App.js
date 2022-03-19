@@ -5,7 +5,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import NavBar from './components/NavBar/NavBar';
 import Cart from './components/Cart/Cart';
 import { CartContextProvider } from './context/CartContext';
-import {NotificationServicesProvider} from './services/notification/NotificationServices';
+
 
 
 
@@ -14,7 +14,7 @@ function App() {
   
   return (
     <div className="App">
-      <NotificationServicesProvider>
+      
         <CartContextProvider> 
             <BrowserRouter>
               <NavBar/>
@@ -26,7 +26,7 @@ function App() {
               </Routes>
             </BrowserRouter>
         </CartContextProvider>
-      </NotificationServicesProvider>
+    
         
     </div>
   );

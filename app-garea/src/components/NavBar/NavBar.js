@@ -17,8 +17,8 @@ const Navbar = () =>{
                 <NavLink to={'/'}><img  src={'./img/logo_fest.png'} className='logo' alt='logo'></img></NavLink>
             </div>
             <div>
-                <NavLink to={'/category/hombre'}  className={({isActive}) => isActive ? 'ActiveBtnCategoria':'BtnCategoria'}>Hombre</NavLink>
-                <NavLink to={'/category/mujer'}  className={({isActive}) => isActive ? 'ActiveBtnCategoria':'BtnCategoria'}>Mujer</NavLink>
+                <NavLink to={'/category/Hombre'}  className={({isActive}) => isActive ? 'ActiveBtnCategoria':'BtnCategoria'}>Hombre</NavLink>
+                <NavLink to={'/category/Mujer'}  className={({isActive}) => isActive ? 'ActiveBtnCategoria':'BtnCategoria'}>Mujer</NavLink>
                 <NavLink to={'/cart'}></NavLink>
             </div>
             

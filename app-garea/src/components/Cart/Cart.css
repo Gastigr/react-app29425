@@ -1,0 +1,19 @@
+
+.itemCart{
+
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    
+
+}
+p{
+    margin: 1%;
+}
+/* .FormCart{
+    display: grid;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+} */

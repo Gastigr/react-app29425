@@ -21,12 +21,11 @@ return(
                     
                     <h2>{product.marca}</h2>
                     <img className="ImgCard" src={product.img} alt={product.nombre}/>
-                    <p>{product.color}</p>
-                    
-                    <p>{product.categoria}</p>
-                    <p>{product.nombre}</p>
-                    <p>{product.material}</p>
-                    <p>{product.precio}€</p>
+                    <p>Color: {product.color}</p>
+                    <p>Categoria: {product.categoria}</p>
+                    <p>Nombre: {product.nombre}</p>
+                    <p>Material: {product.material}</p>
+                    <p>Precio: {product.precio}€</p>
                     
 
 

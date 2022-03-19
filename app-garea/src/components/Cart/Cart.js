@@ -2,8 +2,8 @@ import React, { useContext , useState} from 'react';
 import { CartContext } from '../../context/CartContext';
 import { NavLink } from 'react-router-dom';
 import { Timestamp, addDoc, collection } from 'firebase/firestore'
- import { firestoreDb } from '../../services/firebase/firebase'
-
+import { firestoreDb } from '../../services/firebase/firebase'
+import './Cart.css'
 export default function Cart(){
       const{ cart,  removeItem, getTotal, clear} = useContext(CartContext);
       const [processingOrder, setProcessingOrder] = useState(false);
@@ -11,19 +11,29 @@ export default function Cart(){
 
 
 
-      const[contact, ] = useState({
+      const[contact, setContact  ] = useState({
           name: '',
           phone: '',
           address: '',
-          comment: ''
+          comment:'',
+          
       });
+      const handleChange = (e) =>{
+       const  {name, value} = e.target
+
+       setContact({
+         ...contact,
+         [name]:value
+       })
+
+      }
 
       const confirmOrder = () =>{
           if( 
-              contact.phone !== '' &&
-              contact.name !== '' &&
-              contact.address !== '' &&
-              contact.comment!== '--'  
+              contact.phone !== '' ||
+              contact.name !== '' ||
+              contact.address !== '' ||
+              contact.comment !== '--'  
              
           ) {
               setProcessingOrder(true)
@@ -32,7 +42,7 @@ export default function Cart(){
               const objOrder ={
                   buyer: contact,
                   items: cart,
-                  total: getTotal,
+                  total: getTotal(),
                   date: Timestamp.fromDate(new Date ()),
               };
               addDoc(collection(firestoreDb, 'orders'),objOrder).then((doc)=>{
@@ -56,7 +66,7 @@ export default function Cart(){
 
       <div>
           <h2>CART</h2>
-          <ul>
+          <div>
             {cart.length <= 0 ?(
                 <>
                   <p>
@@ -66,7 +76,7 @@ export default function Cart(){
                 </>
             ):(
               cart.map((prod) => (
-                <li key={prod.id}>
+                <div  className='itemCart' key={prod.id}>
                     <img
                       className="ImgCard"
                       src={prod.img}
@@ -77,17 +87,61 @@ export default function Cart(){
                     <p>Cantidad: {prod.cantidad}</p>
                   
                     <button onClick={()=> removeItem(prod.id)}>Remove</button>
+                     
 
-                </li>
+                </div>
               ))
             )}
-          </ul>
+          </div>
+          <div>
           <from action="">
-            <input type="text"/>
+            <input 
+              type="text" 
+              name='name'
+              placeholder='Name' 
+              onChange={handleChange}
+              value={contact.name}
+            />
+
+            <input 
+            type="number" 
+            name='phone' 
+            placeholder='Phone' 
+            onChange={handleChange}
+            value={contact.phone}
+            />
+
+            <input 
+            type="text" 
+            name='address' 
+            placeholder='Address' 
+            onChange={handleChange}
+            value={contact.address}
+            />
+
+            <input 
+            type="text" 
+            name='comment' 
+            placeholder='Comment' 
+            onChange={handleChange}
+            value={contact.comment}
+            />
           </from>
-          <button onClick={() => clear()}>Borrar el carrito</button>
+          </div>
           
-          <button onClick={() => confirmOrder()} className="Button"> {processingOrder ?  ' Generando ordern':'Confirmar'}</button>
+          <div>
+          <button onClick={() => clear()}>Borrar el carrito</button>
+          <h3>Total: ${getTotal()}</h3>
+          <button onClick={() => confirmOrder()} disabled={
+              contact.name === '' ||
+              contact.phone === '' ||
+              contact.address  === ''|| 
+               contact.comment === ''
+            }
+              className="Button">
+            {''}
+            {processingOrder ?  ' Generando ordern':'Confirmar'}</button>
+          </div>
           
           
           <NavLink to={'/'}>Seguir comprando!</NavLink>

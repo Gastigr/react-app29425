@@ -35,10 +35,7 @@ const ItemDetailContainer = () => {
 
 
 
-    //    getProducts()
-    //    .then((producto)=>{
-    //        setProduct(producto.find(product => product.id === parseInt(productId)))
-    //    })
+   
    },[productId])
    
    
@@ -59,10 +56,6 @@ const ItemDetailContainer = () => {
 
 
 
-    // return (
-    //     <div className="Detalle" >
-    //         <ItemDetail  product={product}/>
-    //     </div>
-    // )    
+  
 
 export default ItemDetailContainer
