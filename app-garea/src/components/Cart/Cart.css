@@ -5,15 +5,12 @@
     flex-direction: row;
     align-content: center;
     align-items: center;
+    margin-block: 1%;
+    background-color: aliceblue;
+    border: 3px solid black;
     
-
 }
 p{
     margin: 1%;
 }
-/* .FormCart{
-    display: grid;
-    align-content: stretch;
-    justify-content: center;
-    align-items: center;
-} */
+

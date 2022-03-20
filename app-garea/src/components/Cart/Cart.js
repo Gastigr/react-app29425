@@ -82,56 +82,58 @@ export default function Cart(){
                       src={prod.img}
                       alt={prod.nombre}
                     />
-                    <p>Nombre: {prod.nombre}</p>
-                    <p>Precio: {prod.precio}€</p>
-                    <p>Cantidad: {prod.cantidad}</p>
+                    <p>{prod.nombre}</p>
+                    <p>Precio x unidad : {prod.precio}€ </p>
+                    <p>Unidad: {prod.cantidad}</p>
+                    <p>SubTotal: {prod.precio * prod.cantidad} </p>
                   
-                    <button onClick={()=> removeItem(prod.id)}>Remove</button>
+                    <button onClick={()=> removeItem(prod.id)}>X</button>
                      
 
                 </div>
               ))
             )}
           </div>
-          <div>
-          <from action="">
-            <input 
-              type="text" 
-              name='name'
-              placeholder='Name' 
+          <div className='FormContact'>
+            <from action="">
+              <input 
+                type="text" 
+                name='name'
+                placeholder='Name' 
+                onChange={handleChange}
+                value={contact.name}
+              />
+
+              <input 
+              type="number" 
+              name='phone' 
+              placeholder='Phone' 
               onChange={handleChange}
-              value={contact.name}
-            />
+              value={contact.phone}
+              />
 
-            <input 
-            type="number" 
-            name='phone' 
-            placeholder='Phone' 
-            onChange={handleChange}
-            value={contact.phone}
-            />
+              <input 
+              type="text" 
+              name='address' 
+              placeholder='Address' 
+              onChange={handleChange}
+              value={contact.address}
+              />
 
-            <input 
-            type="text" 
-            name='address' 
-            placeholder='Address' 
-            onChange={handleChange}
-            value={contact.address}
-            />
-
-            <input 
-            type="text" 
-            name='comment' 
-            placeholder='Comment' 
-            onChange={handleChange}
-            value={contact.comment}
-            />
-          </from>
+              <input 
+              type="text" 
+              name='comment' 
+              placeholder='Comment' 
+              onChange={handleChange}
+              value={contact.comment}
+              />
+            </from>
           </div>
           
           <div>
           <button onClick={() => clear()}>Borrar el carrito</button>
-          <h3>Total: ${getTotal()}</h3>
+          
+          <h3>Total: {getTotal()}€</h3>
           <button onClick={() => confirmOrder()} disabled={
               contact.name === '' ||
               contact.phone === '' ||
