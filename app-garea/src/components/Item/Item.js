@@ -9,8 +9,8 @@ const Item = ({product}) => {
                     <img className="ImgCard" src={product.img} alt={product.nombre}/>
                     <p>{product.nombre}</p>
                     <p>Precio: {product.precio}€</p>
-                    <Link to={`/detail/${product.id}`}>Ver Detalle</Link>
                     
+                    <p className="Link"><Link to={`/detail/${product.id}`}>Ver Detalle</Link></p>
                     
                 </div>
             </div>

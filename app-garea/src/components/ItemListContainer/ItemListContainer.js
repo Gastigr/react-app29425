@@ -1,10 +1,9 @@
 import './itemListContainer.css'
-
 import  { useState,useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
-import { getDocs, collection,query, where} from 'firebase/firestore'
-import { firestoreDb } from '../../services/firebase/firebase'
+
+import {  getProducts } from '../../services/firebase/firebase'
 
 
 const ItemListContainer = ({greeting}) =>{
@@ -18,23 +17,14 @@ const ItemListContainer = ({greeting}) =>{
 
     useEffect(()=>{
        setLoading(true)
+        getProducts(categoryId).then(response =>{
+            setProducts(response)
+        }).catch(() =>{
+    
+        
 
-
-        const collectionRef = categoryId ?
-        query(collection(firestoreDb,'products'), where('categoria', '==',categoryId )) :
-        collection(firestoreDb, 'products')
-
-       getDocs(collectionRef).then(response =>{
-           
-           const products = response.docs.map(doc =>{
-               
-               return{id: doc.id, ...doc.data()}
-               
-           })
-           setProducts(products)
-       })    
-
-        .finally(()=>{
+       
+       }).finally(()=>{
              setLoading(false)
         })
         return(()=>{
@@ -54,6 +44,6 @@ const ItemListContainer = ({greeting}) =>{
         </>
         
     );
-}
+    }
 
 export default ItemListContainer

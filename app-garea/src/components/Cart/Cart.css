@@ -13,4 +13,10 @@
 p{
     margin: 1%;
 }
-
+.vaciarCart{
+    width: 7%;
+    border-radius: 10%;
+    margin: 1%;
+    height: auto;
+    background-color: yellow;
+}

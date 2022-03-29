@@ -11,13 +11,13 @@
     position:unset;
     display: grid;
     margin: 0%;
-    padding: 13%;
+    padding: 2%;
     border: 2px solid black;
     border-radius: 5%;
     background-color:aliceblue;
 }
 .ImgCard{
-    width: 200px;
+    width: 300px;
 }
 p{
     color:black;
@@ -28,4 +28,7 @@ p{
 }
 a{
     text-decoration: none;
+}
+a:hover{
+    color: red;
 }

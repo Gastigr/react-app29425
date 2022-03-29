@@ -1,21 +1,63 @@
-
 import { initializeApp } from "firebase/app";
-import { getFirestore  } from "firebase/firestore";
+import { getFirestore, query  } from "firebase/firestore";
+import { getDocs, collection, where, getDoc,doc} from 'firebase/firestore'
 
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCnpZ0uWepIaANtbqiXDvJcZJLaVsM1iuI",
-  authDomain: "app-react-604b3.firebaseapp.com",
-  projectId: "app-react-604b3",
-  storageBucket: "app-react-604b3.appspot.com",
-  messagingSenderId: "746602327649",
-  appId: "1:746602327649:web:2b3ac5524f215bc6194420",
-  measurementId: "G-9YBTRX8LBJ"
+  apiKey: process.env.REACT_APP_ApiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
-// Initialize Firebase
+
+
 const app = initializeApp(firebaseConfig);
 
-export const firestoreDb = getFirestore(app)
+ export const firestoreDb = getFirestore(app)
+
+
+
+export const getProducts = (categoryId) =>{
+  return new Promise ((resolve, reject) =>{
+    const collectionRef = categoryId ?
+        query(collection(firestoreDb,'products'), where('categoria', '==',categoryId )) :
+        collection(firestoreDb, 'products')
+
+       getDocs(collectionRef).then(response =>{
+           
+           const products = response.docs.map(doc =>{
+               
+               return{id: doc.id, ...doc.data()}
+               
+           })
+           resolve(products)
+       }).catch((error) => {
+         reject('Error en la carga de los Productos', error)
+       })
+  })
+
+
+ 
+}
+
+
+export const getProductsById = (productId) =>{
+  return new Promise((resolve, reject) =>{
+
+    const docRef = doc(firestoreDb, 'products', productId)
+
+
+    getDoc(docRef).then(response => {
+        const product = {id: response.id, ...response.data()}
+        resolve(product)
+      
+      }).catch((error) => {
+        reject('Error obteniendo Producto', error)
+      })
+  })
+
+
+}

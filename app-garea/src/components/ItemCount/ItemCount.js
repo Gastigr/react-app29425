@@ -1,6 +1,6 @@
 import { useState,  } from 'react'
-import {FaPlusSquare  } from "react-icons/fa";
-import {FaMinusSquare} from "react-icons/fa";
+
+import './ItemCount.css'
 
 
 
@@ -22,8 +22,8 @@ const ItemCount = ({stock = 1, initial = 1, onAdd}) => {
             <h3>{count}</h3>
 
             <div className='Botones'>
-                <button aling="right" onClick={increment}><FaPlusSquare /></button>
-                <button aling="left"  onClick ={decrement}><FaMinusSquare/></button>
+                <button className='BntIncre'  onClick={increment}>+</button>
+                <button className='BtnDecre'  onClick ={decrement}>-</button>
                 <button aling="center" onClick={() => onAdd(count)}>Agregar al carrito</button>
             </div>
 

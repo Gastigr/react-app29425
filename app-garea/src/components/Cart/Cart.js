@@ -1,7 +1,7 @@
 import React, { useContext , useState} from 'react';
 import { CartContext } from '../../context/CartContext';
 import { NavLink } from 'react-router-dom';
-import { Timestamp, addDoc, collection } from 'firebase/firestore'
+import { Timestamp, addDoc, collection,  } from 'firebase/firestore'
 import { firestoreDb } from '../../services/firebase/firebase'
 import './Cart.css'
 export default function Cart(){
@@ -63,9 +63,10 @@ export default function Cart(){
     }
 
     return( 
-
-      <div>
-          <h2>CART</h2>
+      <>  
+        <h2>CART</h2>
+        <div>
+          
           <div>
             {cart.length <= 0 ?(
                 <>
@@ -75,6 +76,7 @@ export default function Cart(){
                   
                 </>
             ):(
+              
               cart.map((prod) => (
                 <div  className='itemCart' key={prod.id}>
                     <img
@@ -131,23 +133,27 @@ export default function Cart(){
           </div>
           
           <div>
-          <button onClick={() => clear()}>Borrar el carrito</button>
+            <button className='vaciarCart' onClick={() => clear()}>Vaciar el carrito</button>
           
-          <h3>Total: {getTotal()}€</h3>
-          <button onClick={() => confirmOrder()} disabled={
-              contact.name === '' ||
-              contact.phone === '' ||
-              contact.address  === ''|| 
-               contact.comment === ''
-            }
-              className="Button">
-            {''}
-            {processingOrder ?  ' Generando ordern':'Confirmar'}</button>
-          </div>
+            <h3>Total: {getTotal()}€</h3>
+              <button onClick={() => confirmOrder()} disabled={
+                  contact.name === '' ||
+                  contact.phone === '' ||
+                  contact.address  === ''|| 
+                  contact.comment === ''
+                }
+                className="Button">
+                {''}
+                {processingOrder ?  ' Generando ordern':'Confirmar'}
+              </button>
+            </div>
           
           
-          <NavLink to={'/'}>Seguir comprando!</NavLink>
-      </div>
+            <NavLink to={'/'}>Seguir comprando!</NavLink>
+        </div>
+      </>
+
+     
     );
     
 }

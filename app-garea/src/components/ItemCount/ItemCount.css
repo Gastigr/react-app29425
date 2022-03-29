@@ -1,0 +1,14 @@
+.Botones{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.BtnIncre{
+    width: 8%;
+    color: red;
+}
+
+.BtnDecre{
+    width: 8%;
+}
