@@ -5,7 +5,7 @@
 >Tienda de Relojes de una marca muy prestigiada
 
 ## Visuals
-> https://res.cloudinary.com/gasgarea/image/upload/v1648657490/img/WhatsApp_Video_2022-03-30_at_6.08.19_PM_1_2_ilytso.gif
+> ![gif](https://user-images.githubusercontent.com/87451210/160890414-91f6f30b-f1ee-4462-8a4f-1cdbc8e41552.gif)
 
 ## Installation
 ### 1 - clonar el repositorio
