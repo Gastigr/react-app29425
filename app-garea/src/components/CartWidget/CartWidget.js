@@ -1,9 +1,7 @@
-// import { useContext } from "react";
-
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-import './CartWidget.css'
 import { useContext } from 'react'
+import './CartWidget.css'
 
 const CartWidget = () =>{
 
@@ -20,12 +18,4 @@ const CartWidget = () =>{
 	)
 
 }
-
-
-
-
-
-
-	
-
-	export default CartWidget
+export default CartWidget
