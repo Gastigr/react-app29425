@@ -1,18 +1,14 @@
 import { useState, useEffect } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.css'
-
 import { useParams } from 'react-router-dom'
-
 import {  getProductsById } from '../../services/firebase/firebase'
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({})
     const {productId} =useParams ()
     const [loading, setLoading] = useState(true)
-    
-
-   useEffect(()=>{
+    useEffect(()=>{
     setLoading (true)
         getProductsById(productId).then(response =>  {
             setProduct(response)
@@ -20,20 +16,10 @@ const ItemDetailContainer = () => {
         }).finally(()=>{
         setLoading(false)
     } )
-
-
-
     return(() =>{
         setProduct()
     })
-
-
-
-
-
-
-   
-   },[productId])
+    },[productId])
    
    
    return (
@@ -48,11 +34,4 @@ const ItemDetailContainer = () => {
     </div>
 )    
 }
-
-
-
-
-
-  
-
 export default ItemDetailContainer

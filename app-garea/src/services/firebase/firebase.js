@@ -12,14 +12,9 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_appId
 };
 
-
-
 const app = initializeApp(firebaseConfig);
 
- export const firestoreDb = getFirestore(app)
-
-
-
+export const firestoreDb = getFirestore(app)
 export const getProducts = (categoryId) =>{
   return new Promise ((resolve, reject) =>{
     const collectionRef = categoryId ?
@@ -28,19 +23,15 @@ export const getProducts = (categoryId) =>{
 
        getDocs(collectionRef).then(response =>{
            
-           const products = response.docs.map(doc =>{
+        const products = response.docs.map(doc =>{
                
-               return{id: doc.id, ...doc.data()}
-               
-           })
-           resolve(products)
+          return{id: doc.id, ...doc.data()}
+        })
+        resolve(products)
        }).catch((error) => {
-         reject('Error en la carga de los Productos', error)
+        reject('Error en la carga de los Productos', error)
        })
   })
-
-
- 
 }
 
 
@@ -48,8 +39,6 @@ export const getProductsById = (productId) =>{
   return new Promise((resolve, reject) =>{
 
     const docRef = doc(firestoreDb, 'products', productId)
-
-
     getDoc(docRef).then(response => {
         const product = {id: response.id, ...response.data()}
         resolve(product)

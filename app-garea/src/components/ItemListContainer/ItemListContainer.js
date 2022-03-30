@@ -20,26 +20,19 @@ const ItemListContainer = ({greeting}) =>{
         getProducts(categoryId).then(response =>{
             setProducts(response)
         }).catch(() =>{
-    
-        
 
-       
-       }).finally(()=>{
-             setLoading(false)
+        }).finally(()=>{
+            setLoading(false)
         })
         return(()=>{
             setProducts()
         })
  
     },[categoryId])
-    
-
     return(
         <>
         <h1>{greeting}</h1>
-        <div className="ItemListContainer">
-            
-        </div>
+        <div className="ItemListContainer"></div>
         {loading ? <h2> Cargando los Productos....</h2> : <ItemList products={products} />}
         </>
         

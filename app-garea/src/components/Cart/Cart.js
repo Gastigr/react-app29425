@@ -8,14 +8,11 @@ export default function Cart(){
       const{ cart,  removeItem, getTotal, clear} = useContext(CartContext);
       const [processingOrder, setProcessingOrder] = useState(false);
       const [orderId, setOrderId] = useState('');
-
-
-
       const[contact, setContact  ] = useState({
-          name: '',
-          phone: '',
-          address: '',
-          comment:'',
+        name: '',
+        phone: '',
+        address: '',
+        comment:'',
           
       });
       const handleChange = (e) =>{
